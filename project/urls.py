@@ -15,12 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from  projectApp import views
+from django.conf.urls import url
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
-    path("",include("projectApp.urls")),
-    path("checklogin",include("projectApp.urls")),
+    path("",include("projectApp.urls")),  
+    path("welcome",include("projectApp.urls")),  
     path("register",include("projectApp.urls")),
+    #path("welcome",include("projectApp.urls")),
     path("about",include('projectApp.urls')),
-    #path('fetch',include('projectApp.urls')),
+    path("logout",include('projectApp.urls')),
+    path("update",include('projectApp.urls')),
+    path('update_profile',include('projectApp.urls')),
+    # path('questions',include('projectApp.urls')), 
+    # path('home',include('projectApp.urls')),  
+    # path(r'^$', include('projectApp.urls')),
+    # url(r'^', include('projectApp.urls')),
+    path(r'^projectApp/', include('projectApp.urls')),
 ]

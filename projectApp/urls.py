@@ -16,13 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf.urls import url
+
 
 urlpatterns = [
+   
     path('admin/', admin.site.urls),
     path('',views.index,name="index"),
-    path('checklogin',views.checklogin,name="checklogin"),
+    path('welcome',views.login),
+    
     path("register",views.register,name="register"),
     path("about",views.about,name="about"),
-    #path('fetch',views.fetch,name="welcome"),
-
+    path('logout',views.logout,name="logout"),
+    path('update',views.update,name="update"),
+    path('update_profile',views.update_profile,name="update_profile"),
+    path('home',views.home,name="home"),
+    path('result',views.result,name="result"),
+    path('advancejava',views.advancejava,name="advancejava"),
+    url(r'^(?P<choice>[\w]+)', views.questions, name = 'questions'),
+    #path('welcome',views.welcome),
 ]

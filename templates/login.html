@@ -5,7 +5,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="F:\project\templates\alert.js"> </script>
       </head>
-        <body>
+        <body style="background-color:#E6E6FA">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="overflow:show;position: fixed;top: 0;width: 100%;z-index:1000";>
                 <a class="navbar-brand" href="#">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,15 +39,9 @@
                           &emsp;
                   </div>
                       </form>
-                  <form class="form-inline my-2 my-lg-0"  action="/logout">
+                 
               
-              
-                              {% csrf_token %}
-                              
-                                <button type="submit" class="btn btn-primary">Forgot Password</button>
-                          </form>
-              
-              
+            
               
                 </div>
               </nav> 
@@ -71,7 +65,9 @@
     <div> {{ msg }}</div>
      {% endfor %}
     {% endif %}
-  <form action="/index" method="post">
+
+  <form action="welcome" method="post">
+  
   {% csrf_token %}
   <div class="card-body">
   
