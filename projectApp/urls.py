@@ -35,9 +35,11 @@ urlpatterns = [
     path('result',views.result,name="result"),
     path('advancejava',views.advancejava,name="advancejava"),
     path('advancepython',views.advancepython),
+    path('advanceandroid',views.advanceandroid),
     path('advancec',views.advancec),
     path('cResult',views.cResult),
     path('pythonResult',views.pythonResult),
+    path('androidResult',views.androidResult),
     url(r'^(?P<ch1>[\w]+)', views.questions, name = 'questions'),
     
 ]

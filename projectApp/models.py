@@ -107,7 +107,7 @@ class Advancepython(models.Model):
     def __str__(self):
         return self.question
 
-class Android(models.Model):
+class Advanceandroid(models.Model):
   
     question = models.CharField(max_length = 250)
     optiona = models.CharField(max_length = 100)

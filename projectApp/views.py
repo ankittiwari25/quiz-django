@@ -166,6 +166,8 @@ def result(request):
                 return render(request,'advance_C.html',{'score':score})
             if selected == "python":
                 return render(request,'advancepython.html',{'score':score})
+            if selected == "android":
+                return render(request,'advanceandroid.html',{'score':score})
         else:
             return render(request,'result.html',{'score':score,'eff':eff,'total':total})
 
@@ -246,3 +248,39 @@ def advancepython(request):
     ques =  Advancepython.objects.all()
     print(ques)
     return render(request,'advancePythonquestion.html',{'ques':ques})
+
+
+#level2 result for python language
+
+def androidResult(request):
+
+    selected=request.POST.get('selected')  #get the category from question.html
+
+    if request.method == 'POST':
+        data = request.POST
+        datas = dict(data)
+        qid = []
+        qans = []
+        ans = []
+        score = 0
+        for key in datas:
+            try:
+                qid.append(int(key))
+                qans.append(datas[key][0])
+            except:
+                print("Csrf")
+        for q in qid:
+            ans.append((Advanceandroid.objects.get(id = q)).answer)
+        total = len(ans)
+        for i in range(total):
+            if ans[i] == qans[i]:
+                score += 1
+        eff = (score/total)*100
+    return render(request,'result.html',{'score':score,'eff':eff,'total':total})
+
+
+
+def advanceandroid(request):
+    ques =  Advanceandroid.objects.all()
+    print(ques)
+    return render(request,'advanceAndroidquestion.html',{'ques':ques})
