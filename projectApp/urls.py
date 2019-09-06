@@ -29,10 +29,15 @@ urlpatterns = [
     path("about",views.about,name="about"),
     path('logout',views.logout,name="logout"),
     path('update',views.update,name="update"),
+    path('updatehome',views.updatehome,name="updatehome"),
     path('update_profile',views.update_profile,name="update_profile"),
     path('home',views.home,name="home"),
     path('result',views.result,name="result"),
     path('advancejava',views.advancejava,name="advancejava"),
-    url(r'^(?P<choice>[\w]+)', views.questions, name = 'questions'),
-    #path('welcome',views.welcome),
+    path('advancepython',views.advancepython),
+    path('advancec',views.advancec),
+    path('cResult',views.cResult),
+    path('pythonResult',views.pythonResult),
+    url(r'^(?P<ch1>[\w]+)', views.questions, name = 'questions'),
+    
 ]

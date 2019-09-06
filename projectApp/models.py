@@ -50,10 +50,10 @@ class Question(models.Model):
 
 class Questions(models.Model):
     CAT_CHOICES = (
-    ('sports','Sports'),
-    ('movies','Movies'),
-    ('maths','Maths'),
-    ('generalknowledge','GeneralKnowledge')
+    ('java','Java'),
+    ('c','C'),
+    ('python','Python'),
+    ('android','Android')
     )
     question = models.CharField(max_length = 250)
     optiona = models.CharField(max_length = 100)
@@ -82,5 +82,39 @@ class Advancejava(models.Model):
     def __str__(self):
         return self.question
 
+class C(models.Model):
+  
+    question = models.CharField(max_length = 250)
+    optiona = models.CharField(max_length = 100)
+    optionb = models.CharField(max_length = 100)
+    optionc = models.CharField(max_length = 100)
+    optiond = models.CharField(max_length = 100)
+    answer = models.CharField(max_length = 100)
+    
+    def __str__(self):
+        return self.question
 
 
+class Advancepython(models.Model):
+  
+    question = models.CharField(max_length = 250)
+    optiona = models.CharField(max_length = 100)
+    optionb = models.CharField(max_length = 100)
+    optionc = models.CharField(max_length = 100)
+    optiond = models.CharField(max_length = 100)
+    answer = models.CharField(max_length = 100)
+    
+    def __str__(self):
+        return self.question
+
+class Android(models.Model):
+  
+    question = models.CharField(max_length = 250)
+    optiona = models.CharField(max_length = 100)
+    optionb = models.CharField(max_length = 100)
+    optionc = models.CharField(max_length = 100)
+    optiond = models.CharField(max_length = 100)
+    answer = models.CharField(max_length = 100)
+    
+    def __str__(self):
+        return self.question

@@ -108,23 +108,24 @@ def update_profile(request):
     profile.save()
     return HttpResponse("ok")
 
+def updatehome(request):
+    return render(request,'welcome.html')
 
-def questions(request,choice):
-    print(choice)
-    ques = Questions.objects.filter(catagory__exact = choice)
-    print(ques)
-    return render(request,'questions.html',{'ques':ques})
+
+def questions(request,ch1):    
+    ch = Questions.CAT_CHOICES
+    ques = Questions.objects.filter(catagory__exact = ch1)
+    return render(request,'questions.html',{'ques':ques,'selected':ch1})
 
 def home(request):
     choices = Questions.CAT_CHOICES
-    print(choices)
-    return render(request,
-        'homequestions.html',
-        {'choices':choices})
+    return render(request,'homequestions.html',{'choices':choices})
 
 
 def result(request):
-    print("result page")
+
+    selected=request.POST.get('selected')  #get the category from question.html
+
     if request.method == 'POST':
         data = request.POST
         datas = dict(data)
@@ -148,14 +149,23 @@ def result(request):
         # print(qid)
         # print(qans)
         # print(ans)
-        print(score)
+
+        #print(score)
         if total==0:
             return render(request,'result.html',{'score':'0','eff':'0.0','total':total})
             
         eff = (score/total)*100
 
         if score>1:
-            return render(request,'advancejava.html',{'score':score})
+            print('yes')
+           
+            if selected == "java":
+                return render(request,'advancejava.html',{'score':score})
+            if selected == "c":
+
+                return render(request,'advance_C.html',{'score':score})
+            if selected == "python":
+                return render(request,'advancepython.html',{'score':score})
         else:
             return render(request,'result.html',{'score':score,'eff':eff,'total':total})
 
@@ -166,4 +176,73 @@ def advancejava(request):
     print(ques)
     return render(request,'questions.html',{'ques':ques})
 
-    
+
+
+#level2 result for c language
+
+def cResult(request):
+
+    selected=request.POST.get('selected')  #get the category from question.html
+
+    if request.method == 'POST':
+        data = request.POST
+        datas = dict(data)
+        qid = []
+        qans = []
+        ans = []
+        score = 0
+        for key in datas:
+            try:
+                qid.append(int(key))
+                qans.append(datas[key][0])
+            except:
+                print("Csrf")
+        for q in qid:
+            ans.append((C.objects.get(id = q)).answer)
+        total = len(ans)
+        for i in range(total):
+            if ans[i] == qans[i]:
+                score += 1
+        eff = (score/total)*100
+
+    return render(request,'result.html',{'score':score,'eff':eff,'total':total})
+
+def advancec(request):
+    ques = C.objects.all()
+    print(ques)
+    return render(request,'advanceCquestion.html',{'ques':ques})
+
+#level2 result for python language
+
+def pythonResult(request):
+
+    selected=request.POST.get('selected')  #get the category from question.html
+
+    if request.method == 'POST':
+        data = request.POST
+        datas = dict(data)
+        qid = []
+        qans = []
+        ans = []
+        score = 0
+        for key in datas:
+            try:
+                qid.append(int(key))
+                qans.append(datas[key][0])
+            except:
+                print("Csrf")
+        for q in qid:
+            ans.append((Advancepython.objects.get(id = q)).answer)
+        total = len(ans)
+        for i in range(total):
+            if ans[i] == qans[i]:
+                score += 1
+        eff = (score/total)*100
+    return render(request,'result.html',{'score':score,'eff':eff,'total':total})
+
+
+
+def advancepython(request):
+    ques =  Advancepython.objects.all()
+    print(ques)
+    return render(request,'advancePythonquestion.html',{'ques':ques})

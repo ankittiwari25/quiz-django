@@ -28,6 +28,7 @@ urlpatterns = [
     path("about",include('projectApp.urls')),
     path("logout",include('projectApp.urls')),
     path("update",include('projectApp.urls')),
+    path("updatehome",include('projectApp.urls')),
     path('update_profile',include('projectApp.urls')),
     # path('questions',include('projectApp.urls')), 
     # path('home',include('projectApp.urls')),  

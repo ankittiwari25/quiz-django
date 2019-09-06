@@ -8,43 +8,27 @@
         <body style="background-color:#E6E6FA">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="overflow:show;position: fixed;top: 0;width: 100%;z-index:1000";>
                 <a class="navbar-brand" href="#">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-               
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                      
-                    
-                        
-                          <div class-="container">
-                      
-                                {% csrf_token %}
-                                <a class="nav-link enabled" href="{% url 'about' %}"  tabindex="-1" aria-disabled="true">About Us</a>
-                           </div>
-                                      
-                              
-                            </li>
-                        
-                        
-                    
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0"  action="/register">
-                  <div class-="container">
-              
-                              {% csrf_token %}
-                                <button type="submit" class="btn btn-primary">SignUp</button>
-              
-                          &emsp;
-                  </div>
-                      </form>
-                 
-              
-            
-              
-                </div>
-              </nav> 
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                     </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <div class-="container">
+                                        {% csrf_token %}
+                                          <a class="nav-link enabled" href="{% url 'about' %}"  tabindex="-1" aria-disabled="true">About Us</a>
+                                    </div>
+                                </li>
+                          </ul>
+                              <form class="form-inline my-2 my-lg-0"  action="/register">
+                                    <div class-="container">
+                                          {% csrf_token %}
+                                            <button type="submit" class="btn btn-primary">SignUp</button>
+                                            &emsp;
+                                    </div>
+                              </form>
+                      </div>
+          </nav> 
 <div class="row">
     <div class="col-4"><br>
     <br>

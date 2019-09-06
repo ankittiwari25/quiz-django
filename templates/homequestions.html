@@ -11,16 +11,20 @@
      <center><h1>Welcome to Quiz 1.0</h1>
   <h2>Select the catagory to begin with the quiz in that catagory</h2></center> <br><br>
   <div class="container">
-  {% for choice in choices %}
+  {% for ch1 in choices %}
+  
  
     <div class="card">
   <div class="card-body">
    
-      <a href="{{ choice.0 }}"><h3>{{ choice.1 }}</h3></a>
- 
+ <a href="{{ ch1.0 }}"><h3>{{ ch1.1 }}</h3></a> 
+     
+     
+    
   </div>
 </div><br>
-  {% endfor %}
+ 
+   {% endfor %}
   </div>
 </body>
 </html>

@@ -6,28 +6,56 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             <script src="F:\project\templates\alert.js"> </script>
 </head>
-<body>
-    <form action="update_profile" method="POST">
-        {% csrf_token %}
-        <form class="form-group">
-            <div class="form-group col-md-6">
-              <label for="exampleInputName">Name</label>
-               <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name" >
-            </div>
-           <div class="form-group col-md-6">
-              <label for="exampleInputEmail1">Email address</label>
-               <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
-            </div>
-            <div class="form-group col-md-6">
-               <label for="inputPassword1" class="sr-only">Password</label>
-                <input type="password" name="password" class="form-control" id="inputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group col-md-6">
-               <label for="inputPassword2" class="sr-only">Password</label>
-                <input type="password" class="form-control" name="con_password"  id="inputPassword2" placeholder="confirm Password">
-            </div>
-            <button type="submit" class="btn btn-primary mb-1">Update</button>
-         </form>
-    </form>
+<body  style="background-color:#E6E6FA"><br><br><br><br><br>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="overflow:show;position: fixed;top: 0;width: 100%;z-index:1000";>
+                <a class="navbar-brand" href="{% url 'updatehome' %}">Home</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                     </button>
+                      
+          </nav> 
+
+<div class="container col-6">
+   <div class="card">
+        <center> 
+              <div class="card-header">
+                    <strong> Update Your Profile </strong>
+                </div>
+         </center>
+          <center>
+               <div class="card-body">
+                     <form action="update_profile" method="POST">
+                        {% csrf_token %}
+                           <form class="form-group">
+
+                              <div class="form-group col-md-8">
+                              
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
+                                    <small id="emailHelp" class="form-text text-muted">Please Enter your correct email id to update your profile.</small>
+                                    
+                              </div>
+
+                                 <div class="form-group col-md-8">
+                              
+                                    <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name" >
+                                 </div>
+                              
+                                 <div class="form-group col-md-8">
+
+                                    <input type="password" name="password" class="form-control" id="inputPassword1" placeholder="Password">
+                                 </div>
+                                 <div class="form-group col-md-8">
+                                 
+                                    <input type="password" class="form-control" name="con_password"  id="inputPassword2" placeholder="confirm Password">
+                                 </div>
+                                 <button type="submit" class="btn btn-primary mb-1">Update</button>
+                           </form>
+                     </form>
+               </div>
+         </center
+      </div>
+   </div>
 </body>
 </html>
+
+
