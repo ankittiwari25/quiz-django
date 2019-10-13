@@ -47,29 +47,42 @@ def register(request):
 def about(request):
     return render(request,"about.html")
 
-
 def login(request):
-    username=request.POST.get('email')
-  
-    password=request.POST.get('password')
-    aa=Register.objects.get(email=username)
-    print(aa)
-    pwd= Register.objects.only('password').get(email=username).password
-    if password!=pwd:
-        return HttpResponse('usern and pass is invalid')
-
-    user = Register.objects.get(email=username,password=password)
-
-    if user is not None:
-
-        return render(request,'welcome.html',{"name":aa})
-       
-    else:
-
-        return HttpResponse('usern and pass is invalid')
+    un=request.POST.get('email')
+    up=request.POST.get('password')
+    v_un =Register.objects.filter(email=un).exists()
+    v_pwd = Register.objects.filter(password=up).exists()
+    print("---------------------")
+    print(un)
+    print(up)
+    print("---------------------")
+    print("##################")
+    print(v_un)
+    print(v_pwd)
+    print("##################")
+    if v_un == False and v_pwd == False:
+        messages.error(request,"invalid email & password")
+        return render(request,'login.html')
+    elif v_un==False:
+        messages.error(request,"invalid email")
+        return render(request,'login.html')
+    elif v_pwd == False:
+        messages.error(request,"invalid password")
+        return render(request,'login.html')
+    elif v_un:
+        v_pass = Register.objects.only('password').get(email=un).password
+        if v_pass==up:
+            if Register.objects.get(email=un,password=up):
+                aa=Register.objects.get(email=un)
+                return render(request,'welcome.html',{'name':aa})
+            else:
+                messages.error(request,"invalid password")
+                return render(request,'login.html')
+        else:
+            messages.error(request,"invalid email")
+            return render(request,'login.html')
         
-    return render(request,'login.html',{"form":form})
-
+       
 
 def logout(request):
     return render(request,'login.html')
@@ -101,16 +114,19 @@ def update_profile(request):
 
     print(username)
     profile = Register.objects.get(email=email)
-   
     profile.name = username
     profile.password = pass1
     profile.con_password = con_pass
     profile.save()
-    return HttpResponse("ok")
+    messages.success(request,'Your profile updated successfully')
+    return render(request,'update_profile.html')
 
 def updatehome(request):
     return render(request,'welcome.html')
 
+def category(request):
+    choices = Questions.CAT_CHOICES
+    return render(request,'homequestions.html',{'choices':choices})
 
 def questions(request,ch1):    
     ch = Questions.CAT_CHOICES

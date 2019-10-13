@@ -1,13 +1,18 @@
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="F:\project\templates\alert.js"> </script>
 <style>
 .paragraph
 {
     font-size: 20px;
     border-style: double;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 100px;
     margin-right: 150px;
-    margin-left: 80px;
+    margin-left: 222px;
     padding: 25px 50px 75px 100px;
     font-family: "Times New Roman", Times, serif;
     background-color: lightblue;
@@ -16,16 +21,28 @@
 </style>
 </head>
 <body bgcolor="#E6E6FA">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="overflow:show;position: fixed;top: 0;width: 100%;z-index:1000";>
+                    <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                        </button>
+      </nav> 
 <div class="wrapper row2">
   <div id="container" class="clear">
     
     <div id="about-us" class="clear">
      
       <section id="about-intro" class="clear">
+      <br><br><br><br>
         <u><center><h1>About Us</h2></center></u>
         {% comment %} <img src="images/demo/960x340.gif" alt=""> {% endcomment %}
-        <p class="paragraph">In sed neque id libero pretium luctus. Vivamus faucibus. Ut vitae elit. In hac habitasse platea dictumst. Proin et nisl ac orci tempus luctus. Aenean lacinia justo at nisi. Vestibulum sed eros sit amet nisl lobortis commodo. Suspendisse nulla. Vivamus ac lorem. Aliquam pulvinar purus at felis. Quisque convallis nulla id ipsum. Praesent vitae urna. Fusce blandit nunc nec mi. Praesent vestibulum hendrerit ante.
-        Vivamus accumsan. Donec molestie pede vel urna. Curabitur eget sem ornare felis gravida vestibulum.Sed pulvinar, tellus in venenatis vehicula, lorem magna dignissim erat, in accumsan ante lorem sit amet lorem.</p>
+       <center> <p class="paragraph">
+        The main objective of “Quiz Contest” is to facilitate a user   friendly environment for all users and reduces the manual effort. 
+In past days quiz is conducted manually but in further resolution of the technology we are able to generate the score and pose the queries automatically. 
+The functional requirements include to create users that are going to participate in the quiz, automatic score and administrative tasks like add, delete, update for admin privilege questions. 
+In this application, all the permissions lies with the administrator i.e. addition of question and answers, marks for each question, Set timer for each quiz with score for each quiz.
+
+        </p></center>
       </section>
      
     </div>

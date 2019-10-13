@@ -6,7 +6,7 @@ class Register(models.Model):
     name = models.CharField(max_length=50)  
     email = models.EmailField()
     password = models.CharField(max_length=50)
-    con_password = models.CharField(max_length=50)
+    #con_password = models.CharField(max_length=50)
     
     def __str__(self):
         return self.name
@@ -118,3 +118,17 @@ class Advanceandroid(models.Model):
     
     def __str__(self):
         return self.question
+
+
+class Result(models.Model):
+  
+    id = models.AutoField
+    name = models.CharField(max_length = 100)
+    category=models.CharField(max_length=250)
+    score = models.PositiveIntegerField(max_length = 100)
+    total = models.PositiveIntegerField(max_length = 100)
+    date = models.DateField(auto_now=True)
+    
+    def __str__(self):
+        return self.name
+

@@ -32,6 +32,7 @@ urlpatterns = [
     path('updatehome',views.updatehome,name="updatehome"),
     path('update_profile',views.update_profile,name="update_profile"),
     path('home',views.home,name="home"),
+    path('category',views.category,name="category"),
     path('result',views.result,name="result"),
     path('advancejava',views.advancejava,name="advancejava"),
     path('advancepython',views.advancepython),
